@@ -140,7 +140,7 @@ def login_admin():
     password = request.form['password']
 
     # Static admin credentials
-    if username == "admin" and password == "admin123":
+    if username == "admin" and password == "mydatabasecrochet05":
         session['admin'] = True
         return redirect('/admin_orders')  # admin -> admin dashboard
     else:
