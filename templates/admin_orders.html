@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Orders Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #4a148c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: white;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #6a1b9a;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f3e5f5;
+    }
+    img {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .no-img {
+      color: #888;
+      font-style: italic;
+    }
+    /* Popup background */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Popup image */
+.popup-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff4081;
+}
+.logout-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
+  color: white;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(126, 34, 206, 0.3);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #9333ea, #581c87);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(126, 34, 206, 0.4);
+}
+
+  </style>
+</head>
+<body>
+  <h1>📦 Customer Orders</h1>
+  <header>
+  <nav>
+    <ul>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+  
+</header>
+  
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Customer Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Products</th>
+      <th>Total</th>
+      <th>Payment Method</th>
+      <th>Payment Screenshot</th>
+      <th>Order Date</th>
+      
+      
+    </tr>
+
+    {% for order in orders %}
+    <tr>
+      <td>{{ order[0] }}</td>
+      <td>{{ order[1] }}</td>
+      <td>{{ order[2] }}</td>
+      <td>{{ order[3] }}</td>
+      <td>{{ order[4] }}</td>
+      <td>{{ order[5] }}</td>
+      <td>₹{{ order[6] }}</td>
+      <td>
+  {% if order[7] == "Online Payment" %}
+    💳 Online (via Screenshot)
+  {% elif order[7] == "Cash on Delivery" %}
+    💵 Cash on Delivery
+  {% else %}
+    {{ order[7] or "N/A" }}
+  {% endif %}
+</td>
+
+      <td>
+        {% if order[8] %}
+  <img src="{{ order[8] }}" alt="Payment Screenshot" width="100"
+         style="cursor:pointer; border-radius:8px;"
+         onclick="openPopup('{{ order[8] }}')">
+{% else %}
+  <span>Not Screenshot Uploaded</span>
+{% endif %}
+      </td>
+      <td>{{ order[13] or 'N/A' }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <script>
+function openPopup(src) {
+  const popup = document.getElementById("imgPopup");
+  const popupImg = document.getElementById("popupImage");
+  popup.style.display = "block";
+  popupImg.src = src;
+}
+
+function closePopup() {
+  document.getElementById("imgPopup").style.display = "none";
+}
+</script>
+
+<!-- Image Popup -->
+<div id="imgPopup" class="popup" onclick="closePopup()">
+  <span class="close-btn">&times;</span>
+  <img class="popup-content" id="popupImage">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - sarveshree Creations</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="checkout-container">
+    <h2>Checkout</h2>
+    <form method="POST" action="/place_order">
+      <label>Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Phone:</label>
+      <input type="text" name="phone" required>
+
+      <label>Email:</label>
+      <input type="email" name="email">
+
+      <label>Address:</label>
+      <textarea name="address" required></textarea>
+
+      <input type="hidden" name="products" id="products">
+      <input type="hidden" name="total" id="total">
+
+      <button type="submit">Confirm Order</button>
+    </form>
+  </div>
+
+  <script>
+    // Fetch cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    let productsText = '';
+    let total = 0;
+
+    cart.forEach(item => {
+      productsText += `${item.name} x${item.qty} - ₹${item.price * item.qty}\n`;
+      total += item.price * item.qty;
+    });
+
+    document.getElementById('products').value = productsText;
+    document.getElementById('total').value = total;
+  </script>
+</body>
+</html>

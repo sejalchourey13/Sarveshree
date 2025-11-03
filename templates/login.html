@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Sarveshree Creations</title>
+  <style>
+    /* === Base Page Setup === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ede7f6, #d1c4e9, #b39ddb);
+      background-size: 200% 200%;
+      animation: gradientMove 10s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: left top; }
+      50% { background-position: right bottom; }
+      100% { background-position: left top; }
+    }
+
+    /* === Soft Glow Circle Backgrounds === */
+    .glow {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.5;
+      animation: floatGlow 10s ease-in-out infinite alternate;
+    }
+
+    .glow.purple {
+      background: #b388ff;
+      top: 10%;
+      left: 15%;
+    }
+
+    .glow.pink {
+      background: #f3a4ff;
+      bottom: 10%;
+      right: 10%;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translateY(0px); opacity: 0.5; }
+      to { transform: translateY(-30px); opacity: 0.8; }
+    }
+
+    /* === Login Container === */
+    .login-container {
+      position: relative;
+      width: 500px;
+      padding: 45px 40px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 40px rgba(50, 0, 100, 0.15);
+      backdrop-filter: blur(15px);
+      animation: fadeSlideUp 1.2s ease-out forwards;
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(70px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .login-container:hover {
+      box-shadow: 0 25px 50px rgba(90, 0, 160, 0.25);
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    h1 {
+      color: #5b2c83;
+      font-size: 28px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      animation: fadeInText 1.4s ease;
+    }
+
+    h2 {
+      color: #6a1b9a;
+      margin-bottom: 25px;
+      font-weight: 500;
+      animation: fadeInText 1.8s ease;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    select, input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid rgba(160, 120, 200, 0.4);
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    select:focus, input:focus {
+      border-color: #7e57c2;
+      outline: none;
+      box-shadow: 0 0 10px rgba(126, 87, 194, 0.35);
+      transform: scale(1.02);
+    }
+
+    button {
+      width: 95%;
+      background: linear-gradient(135deg, #7b1fa2, #512da8);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      cursor: pointer;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 20px rgba(81, 45, 168, 0.3);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #512da8, #7b1fa2);
+      box-shadow: 0 10px 30px rgba(106, 27, 154, 0.45);
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      color: #4b2e83;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    p {
+      margin-top: 18px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    a {
+      color: #6a1b9a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow purple"></div>
+  <div class="glow pink"></div>
+
+  <div class="login-container">
+    <h1>💜 Sarveshree Creations</h1>
+    <h2>Welcome Back</h2>
+
+    <form action="/login" method="POST" id="loginForm">
+      <label for="role">Select Login Type</label>
+      <select name="role" id="role" required>
+        <option value="user">User Login</option>
+        <option value="admin">Admin Login</option>
+      </select>
+
+      <div id="user-fields">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email">
+
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Your phone number">
+      </div>
+
+      <div id="admin-fields" style="display:none;">
+        <label for="password">Admin Password</label>
+        <input type="password" id="admin-password" name="password" placeholder="Admin password">
+        
+      </div>
+      
+
+      <button type="submit">✨ Login</button>
+    </form>
+  </div>
+
+  <script>
+    const roleSelect = document.getElementById('role');
+    const userFields = document.getElementById('user-fields');
+    const adminFields = document.getElementById('admin-fields');
+    const adminPasswordInput = document.getElementById('admin-password');
+
+    function updateFormForRole() {
+      if (roleSelect.value === 'admin') {
+        userFields.style.display = 'none';
+        adminFields.style.display = 'block';
+        adminPasswordInput.required = true;
+        document.getElementById('email').required = false;
+        document.getElementById('phone').required = false;
+      } else {
+        userFields.style.display = 'block';
+        adminFields.style.display = 'none';
+        adminPasswordInput.required = false;
+        document.getElementById('email').required = true;
+        document.getElementById('phone').required = true;
+      }
+    }
+
+    updateFormForRole();
+    roleSelect.addEventListener('change', updateFormForRole);
+  </script>
+</body>
+</html>

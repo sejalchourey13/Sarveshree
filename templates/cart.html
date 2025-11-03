@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart 🛒</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ede7f6, #d1c4e9, #b39ddb);
+      background-size: 200% 200%;
+      animation: gradientMove 10s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: left top; }
+      50% { background-position: right bottom; }
+      100% { background-position: left top; }
+    }
+/* === Soft Glow Circle Backgrounds === */
+    .glow {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.5;
+      animation: floatGlow 10s ease-in-out infinite alternate;
+    }
+
+    .glow.purple {
+      background: #b388ff;
+      top: 10%;
+      left: 15%;
+    }
+
+    .glow.pink {
+      background: #f3a4ff;
+      bottom: 10%;
+      right: 10%;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translateY(0px); opacity: 0.5; }
+      to { transform: translateY(-30px); opacity: 0.8; }
+    }
+
+    .cart-container {
+      width: 80%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5a189a;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    th {
+      background: rgba(90, 24, 154, 0.1);
+      color: #5a189a;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(90, 24, 154, 0.05);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(123, 44, 191, 0.4);
+    }
+
+    .remove-btn {
+      background: #ff6b6b;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .remove-btn:hover {
+      background: #e63946;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #5a189a;
+      margin-top: 10px;
+    }
+
+    .cart-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    /* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Close Button */
+.modal .close {
+  color: #000;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Input Fields */
+.modal input, .modal textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Submit Button */
+.modal .btn {
+  width: 100%;
+  background-color: #810cb7;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modal .btn:hover {
+  background-color: #8624d2;
+}
+  </style>
+</head>
+<body>
+
+  <div class="cart-container">
+    <h2>Your Cart 🛒</h2>
+
+    {% if cart %}
+      <table>
+        <tr>
+          <th>Product Name</th>
+          <th>Product Price (₹)</th>
+          <th>Quantity</th>
+          <th>Adjust_Quantity</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+          <td>{{ item.product_name }}</td>
+          <td>{{ item.product_price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>
+        <a href="{{ url_for('decrease_quantity', item_id=item[0]) }}" class="qty-btn">−</a>
+        {{ item[3] }}
+        <a href="{{ url_for('increase_quantity', item_id=item[0]) }}" class="qty-btn">+</a>
+      </td>
+          <td>{{ item.product_price*item.quantity }}</td>
+          <td><a href="{{ url_for('remove_from_cart', item_id=item[0]) }}" class="remove-btn">Remove</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <div class="total">Total: ₹{{ total }}</div>
+
+      <div class="cart-actions">
+        <a href="/index" class="btn">🛍️ Continue Shopping</a>
+        <button id="orderAllBtn" class="btn">🧾 Order All Items</button>
+      </div>
+
+    {% else %}
+      <p style="text-align:center; font-size:1.1rem;">Your cart is empty!</p>
+      <div style="text-align:center;">
+        <a href="/index" class="btn">Back to Shop</a>
+      </div>
+    {% endif %}
+  </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // 🛒 Add to Cart Button Logic
+  const cartButtons = document.querySelectorAll(".add-to-cart");
+
+cartButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const name = button.dataset.name;
+    const price = button.dataset.price;
+
+    fetch("/add_to_cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`
+    })
+      .then(res => res.text())
+      .then(data => {
+        if (data === "success") {
+          alert(`${name} added to cart! 🛒`);
+        } else if (data === "not_logged_in") {
+          alert("Please log in first!");
+          window.location.href = "/login";
+        } else {
+          alert("Something went wrong!");
+        }
+      })
+      .catch(err => console.error(err));
+  });
+});
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const orderAllBtn = document.getElementById("orderAllBtn");
+  const orderModal = document.getElementById("orderAllModal");
+  const closeBtn = orderModal.querySelector(".close");
+
+  orderAllBtn.addEventListener("click", () => {
+    orderModal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    orderModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === orderModal) orderModal.style.display = "none";
+  });
+});
+
+function togglePaymentSection() {
+  const method = document.getElementById('payment_method').value;
+  const upiSection = document.getElementById('upiSection');
+  const placeBtn = document.getElementById('placeOrderBtn');
+
+  if (!placeBtn) return; 
+
+  if (method === "Online Payment") {
+    upiSection.style.display = "block";
+    placeBtn.disabled = true;
+  } else if (method === "Cash on Delivery") {
+    upiSection.style.display = "none";
+    placeBtn.disabled = false; 
+  } else {
+    upiSection.style.display = true;
+    placeBtn.disabled = true;
+  }
+}
+// ✅ checkbox enable only when screen shot uploaded
+function handleScreenshotUpload(event) {
+  const file = event.target.files[0];
+  const checkbox = document.getElementById('paymentDone');
+  const status = document.getElementById('screenshotStatus');
+  
+  if (file) {
+    status.textContent = "✅ Screenshot uploaded successfully.";
+    status.style.color = "green";
+    checkbox.disabled = false; // Enable checkbox only after upload
+  } else {
+    status.textContent = "Please upload payment proof.";
+    status.style.color = "gray";
+    checkbox.disabled = true;
+  }
+}
+function togglePlaceOrder() {
+  const paymentDone = document.getElementById('paymentDone').checked;
+  const placeBtn = document.getElementById('placeOrderBtn') || document.querySelector('.btn[type="submit"]');
+  placeBtn.disabled = !paymentDone;
+}
+
+</script>
+
+
+<!-- 🧾 Order All Modal -->
+<div id="orderAllModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Confirm Your Order 🛍️</h3>
+
+    <form id="orderAllForm" method="POST" action="/place_cart_order" enctype="multipart/form-data">
+      <label>Full Name:</label>
+      <input type="text" name="name" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email">
+
+      <label>Phone:</label>
+      <input type="text" name="phone" required>
+
+      <label>Address:</label>
+      <textarea name="address" required></textarea><br>
+
+     <label for="payment_method">Payment Method:</label>
+<select name="payment_method" id="payment_method" onchange="togglePaymentSection()" required>
+  <option value="">Select Payment Method</option>
+  <option value="Cash on Delivery">Cash on Delivery</option>
+  <option value="Online Payment">Online Payment</option>
+</select>
+
+<div id="upiSection" style="display:none; margin-top:20px;">
+  <h4>Scan to Pay</h4>
+  <img src="{{ url_for('static', filename='images/qr_code.png') }}" alt="UPI QR Code" style="width:180px; border-radius:10px;">
+  <p><b>UPI ID:</b> sejal@okaxis</p>
+
+  <!-- Screenshot upload -->
+  <label for="payment_screenshot"><b>Upload Payment Screenshot:</b></label>
+  <input type="file" id="payment_screenshot" name="payment_screenshot" accept="image/*" onchange="handleScreenshotUpload(event)">
+
+  <p id="screenshotStatus" style="font-size: 14px; color: gray;">Please upload payment proof.</p>
+
+ <!-- Checkbox (disabled until screenshot uploaded) -->
+  <label>
+    <input type="checkbox" id="paymentDone" onchange="togglePlaceOrder()" disabled> ✅ I have completed the payment
+  </label>
+</div>
+      <button type="submit" id="placeOrderBtn" class="btn">Place Order</button>
+
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>

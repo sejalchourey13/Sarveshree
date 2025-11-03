@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sarveshree Creations - Handmade Wool Flowers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+ <!-- Header / Navbar -->
+<header>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo2.jpeg')}}" alt="sarveshree Creations Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="/cart">View Cart</a></li>
+      <li><a href="/my_orders">My Orders</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+  
+</header>
+
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-text hero-heading">
+      <!-- <img src="images/flower_side.jpg" alt="Flowers" class="side-image left"> -->
+      <div class="hero-images">
+      <img src="{{ url_for('static', filename='images/flower_side.jpg')}}" alt="Wool Flower" class="side-image">
+      <img src="{{ url_for('static', filename='images/short_kurti.jpg')}}" alt="Short Kurti" class="side-image">
+      </div>
+      <h1>Handmade Wonders For you</h1>
+      <!-- <img src="images/short_kurti.jpg" alt="Short Kurti" class="side-image right"> -->
+      <!-- <img src="images/short_kurti.jpg" alt="Wool Items" class="side-image right"> -->
+      <p>Flowers, Gifts & Unique Decor – Crafted with Love 🌸</p>
+      <a href="#gallery" class="btn">Explore Gallery</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Welcome to <b>sarveshree Creations</b>, or the world of creativity and handmade wonders! From stylish dresses and cute scrunchies to cozy wool creations like flowers, clutches, and gift boxes, we craft each item with love and attention to detail. We also create beautiful decorations and thoughtful gifts for baby showers and special occasions. Every piece is designed to bring joy, charm, and a personal touch to your everyday life. At <b>sarveshree Creations</b>, we believe in turning simple ideas into unique treasures that are as special as you are.</p>
+    </div>
+    <div class="about-img">
+      <img src="{{ url_for('static', filename='images/flower.png')}}" alt="Handmade Wool Flowers">
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <h2>Our Creations</h2>
+    <div class="products-grid">
+    
+    <!-- Product 1 -->
+    <div class="product-card" data-id="1">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/sunflower.jpeg')}}" alt="Product 1" class="product-main" class="product-main zoomable">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product1_main.jpg" alt="p1 main" class="thumb active">
+          <img src="images/product1_alt.jpg"  alt="p1 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet sunflower keychain </h3>
+        <p class="price">₹120</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20sunflower%20keychain" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet sunflower keychain" data-price="120">Add to Cart</button>
+        <button class="order-now" data-name="Crochet sunflower keychain" data-price="120">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card" data-id="2">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/Crochet clip .jpeg')}}" alt="Product 2" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product2_main.jpg" alt="p2 main" class="thumb active">
+          <img src="images/product2_alt.jpg"  alt="p2 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet clip </h3>
+        <p class="price">₹100 pack of 2</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20clip" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet clip" data-price="100">Add to Cart</button>
+        <button class="order-now" data-name="Crochet clip" data-price="100">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card" data-id="3">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/crochet_clip.jpeg')}}" alt="Product 3" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product3_main.jpg" alt="p3 main" class="thumb active">
+          <img src="images/product3_alt.jpg"  alt="p3 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet clip</h3>
+        <p class="price">₹60</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20clip" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet clip" data-price="60">Add to Cart</button>
+        <button class="order-now" data-name="Crochet clip" data-price="60">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card" data-id="3">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/crochet alligator clips.jpeg')}}" alt="Product 3" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product3_main.jpg" alt="p3 main" class="thumb active">
+          <img src="images/product3_alt.jpg"  alt="p3 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet Alligator clips</h3>
+        <p class="price">₹99 Pair of 2</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20alligator%20clip" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet Alligator clips" data-price="99">Add to Cart</button>
+        <button class="order-now" data-name="Crochet Alligator clips" data-price="99">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card" data-id="3">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/clature1.jpeg')}}" alt="Product 3" class="product-main">
+        <div class="variant-thumbs">
+          <img src="{{ url_for('static', filename='images/clature1.jpeg')}}" alt="p3 main" class="thumb active">
+          <img src="{{ url_for('static', filename='images/clature2.jpeg')}}"  alt="p3 alt"  class="thumb">
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>puffy flower claw</h3>
+        <p class="price">₹65</p>
+        <p class="price">₹119 pack of 2</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20puffy%20flower%20claw" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="puffy flower claw" data-price="65">Add to Cart</button>
+        <button class="order-now" data-name="puffy flower claw" data-price="65">Order Now</button>
+      </div>
+    </div>
+
+     <!-- Product 3 -->
+    <div class="product-card" data-id="3">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/gajra3.jpeg')}}" alt="Product 3" class="product-main">
+        <div class="variant-thumbs">
+          <img src="{{ url_for('static', filename='images/gajra3.jpeg')}}" alt="p3 main" class="thumb active">
+          <img src="{{ url_for('static', filename='images/gajra2.jpeg')}}"  alt="p3 alt"  class="thumb">
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet Gajra</h3>
+        <p class="price">₹279</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20Gajra" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet Gajra" data-price="279">Add to Cart</button>
+        <button class="order-now" data-name="Crochet Gajra" data-price="279">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/crochet hair ties.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet hair ties </h3>
+        <p class="price">₹60</p>
+        <p class="price">₹249 pack of 5</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20hair%20ties" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet hair ties" data-price="249">Add to Cart</button>
+        <button class="order-now" data-name="Crochet hair ties" data-price="249">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card" data-id="4">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/Rose.jpeg')}}" alt="Product 4" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product4_main.jpg" alt="p4 main" class="thumb active">
+          <img src="images/product4_alt.jpg"  alt="p4 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet rose bouquet </h3>
+        <p class="price">₹350</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20rose%20bouquet" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet rose bouquet" data-price="350">Add to Cart</button>
+        <button class="order-now" data-name="Crochet rose bouquet" data-price="350">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/purple_bouquet.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Mini rose flower bouquet </h3>
+        <p class="price">₹249</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Mini%20rose%20bflower%20ouquet" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Mini rose flower bouquet" data-price="249">Add to Cart</button>
+        <button class="order-now" data-name="Mini rose flower bouquet" data-price="249">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/Crochet flower pot.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet flower pot </h3>
+        <h3>Size: length 5 inch, width 3inch </h3>
+        <p class="price">₹199</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20flower%20pot" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet flower pot" data-price="199">Add to Cart</button>
+        <button class="order-now" data-name="Crochet flower pot" data-price="199">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/6_Daisy flower charmcar accessories.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Daisy flower charm/car hanging </h3>
+        <p class="price">₹150</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Daisy%20flower%20charm/car%20hanging" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Daisy flower charm/car hanging" data-price="150">Add to Cart</button>
+        <button class="order-now" data-name="Daisy flower charm/car hanging" data-price="150">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/7_Daisy flower charmcar accessories.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+            <img src="{{ url_for('static', filename='images/7_Daisy flower charmcar accessories.jpeg')}}"  alt="p5 main"  class="thumb active">
+          <img src="{{ url_for('static', filename='images/9_Cherry charm.jpeg')}}" alt="p5 alt" class="thumb">
+          <img src="{{ url_for('static', filename='images/handmade_cherry.jpeg')}}" alt="p5 alt" class="thumb">
+          <img src="{{ url_for('static', filename='images/sunflower_keyring.jpeg')}}" alt="p5 alt" class="thumb">
+  
+          
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Cherry charm </h3>
+        <p class="price">₹150</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Cherry%20charm" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Cherry charm" data-price="150">Add to Cart</button>
+        <button class="order-now" data-name="Cherry charm" data-price="150">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 12 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/keyring2.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet mini bouquet keychain </h3>
+        <p class="price">₹180 </p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20mini%20bouquet%20keychain" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet mini bouquet keychain" data-price="180">Add to Cart</button>
+        <button class="order-now" data-name="Crochet mini bouquet keychain" data-price="180">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/8_Daily flower.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Daisy flower </h3>
+        <p class="price">₹89</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Daisy%20flower" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Daisy flower" data-price="89">Add to Cart</button>
+        <button class="order-now" data-name="Daisy flower" data-price="89">Order Now</button>
+      </div>
+    </div>
+
+
+
+    <!-- Product 9 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/15_mirror.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+            <img src="{{ url_for('static', filename='images/15_mirror.jpeg')}}"  alt="p5 main"  class="thumb active">
+          <img src="{{ url_for('static', filename='images/16_mirror.jpeg')}}" alt="p5 alt" class="thumb">
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet puffy flower mirror </h3>
+        <p class="price">6"& 8" - ₹220</p>
+        <p class="price">10"- ₹399 </p>
+        <p class="price">12"- ₹499</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20puffy%20flower%20mirror" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet puffy flower mirror" data-price="220">Add to Cart</button>
+        <button class="order-now" data-name="Crochet puffy flower mirror" data-price="220">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/17_crochet_button_accessories.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Crochet button accessories </h3>
+        <p class="price">₹99 pack of 6</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Crochet%20button%20accessories" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Crochet button accessorie" data-price="99">Add to Cart</button>
+        <button class="order-now" data-name="Crochet button accessorie" data-price="99">Order Now</button>
+      </div>
+    </div>
+
+
+
+    <!-- Product 13 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/10_Handkerchief embroidery Name.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Handkerchief embroidery </h3>
+        <h5>Size: Regular size </h5>
+        <h5>Fabric: Cotton </h5>
+        <p class="price">₹99</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Handkerchief%20embroidery" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Handkerchief embroidery" data-price="99">Add to Cart</button>
+        <button class="order-now" data-name="Handkerchief embroidery" data-price="99">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/11_Handkerchief embroidery Name.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Handkerchief embroidery </h3>
+        <h5>Size: Regular size </h5>
+        <h5>Fabric: Cotton </h5>
+        <p class="price">₹150</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Handkerchief%20embroidery" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Handkerchief embroidery" data-price="105">Add to Cart</button>
+        <button class="order-now" data-name="Handkerchief embroidery" data-price="150">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 12 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/12_Handkerchief embroidery Name.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Handkerchief embroidery </h3>
+        <h5>Size: Regular size </h5>
+        <h5>Fabric: Cotton </h5>
+        <p class="price">₹85</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Handkerchief%20embroidery" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Handkerchief embroidery" data-price="85">Add to Cart</button>
+        <button class="order-now" data-name="Handkerchief embroidery" data-price="85">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 13 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/13_Handkerchief embroidery Name.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Handkerchief embroidery </h3>
+        <h5>Size: Regular size </h5>
+        <h5>Fabric: Cotton </h5>
+        <p class="price">₹150</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Handkerchief%20embroidery" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Handkerchief embroidery" data-price="150">Add to Cart</button>
+        <button class="order-now" data-name="Handkerchief embroidery" data-price="150">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Product 14 -->
+    <div class="product-card" data-id="5">
+      <div class="product-media">
+        <img src="{{ url_for('static', filename='images/14_Handkerchief embroidery Name.jpeg')}}" alt="Product 5" class="product-main">
+        <div class="variant-thumbs">
+          <!-- <img src="images/product5_main.jpg" alt="p5 main" class="thumb active">
+          <img src="images/product5_alt.jpg"  alt="p5 alt"  class="thumb"> -->
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>Handkerchief embroidery </h3>
+        <h5>Size: Regular size </h5>
+        <h5>Fabric: Cotton </h5>
+        <p class="price">₹120</p>
+        <a href="https://wa.me/916264353450?text=Hi,%20I%20want%20to%20order%20Handkerchief%20embroidery" target="_blank" class="order-btn">Message to Order</a>
+        <button class="add-to-cart" data-name="Handkerchief embroidery" data-price="120">Add to Cart</button>
+        <button class="order-now" data-name="Handkerchief embroidery" data-price="120">Order Now</button>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+     <div class="contact-box">
+    <p>For Orders & Enquiries:</p>
+    <div class="phone-section">
+      <span id="phone-number">📞 +91 6264353450</span>
+
+      <!-- Hidden popup -->
+      <div id="contact-popup" class="popup">
+        <a href="tel:+916264353450" class="popup-btn">📞 Call Now</a>
+        
+      </div>
+    </div>
+  </div>
+    <!-- <p>📞 +91 6264353450</p> -->
+    <p><a href="https://www.instagram.com/sarveshree_23/" target="_blank"><i class="fab fa-instagram"></i> @sarveshree_23</a></p>
+
+    <a href="https://wa.me/916264353450" class="btn">Chat on WhatsApp</a>
+    <!-- Put this inside your "Get in touch" section -->
+<div class="contact-person" aria-label="Creative Head contact">
+
+  <div class="contact-text">
+    <span class="contact-role">Creative Head</span>
+    <span class="contact-name">— Miss Shivani Chourey</span>
+  </div>
+</div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>sarveshree Creations | 🧶Handmade with Love 🌐Built with Passion by ~Miss Sejal Chourey</p>
+  </footer>
+
+  <script>
+// 🔸 Variant thumbnail click functionality
+document.querySelectorAll('.product-card').forEach(card => {
+  const mainImg = card.querySelector('.product-main');
+  const thumbs = card.querySelectorAll('.thumb');
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      mainImg.src = thumb.src;
+
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
+  });
+});
+
+// 🔸 Create fullscreen lightbox (with left-right arrows)
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+lightbox.classList.add('lightbox');
+lightbox.innerHTML = `
+  <span class="close">&times;</span>
+  <span class="arrow left">&#10094;</span>
+  <img id="lightbox-img" src="" alt="Zoomed Image">
+  <span class="arrow right">&#10095;</span>
+`;
+document.body.appendChild(lightbox);
+
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = lightbox.querySelector('.close');
+const leftArrow = lightbox.querySelector('.arrow.left');
+const rightArrow = lightbox.querySelector('.arrow.right');
+
+let currentImages = [];
+let currentIndex = 0;
+
+// setup for each product
+document.querySelectorAll('.product-card').forEach(card => {
+  const mainImg = card.querySelector('.product-main');
+  const thumbs = card.querySelectorAll('.thumb');
+
+  mainImg.addEventListener('click', () => {
+ 
+    currentImages = [mainImg.src];
+    thumbs.forEach(thumb => currentImages.push(thumb.src));
+
+    currentIndex = 0;
+    lightboxImg.src = currentImages[currentIndex];
+    lightbox.classList.add('active');
+  });
+});
+
+// next image
+rightArrow.addEventListener('click', () => {
+  if (currentImages.length > 0) {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    lightboxImg.src = currentImages[currentIndex];
+  }
+});
+
+// previous image
+leftArrow.addEventListener('click', () => {
+  if (currentImages.length > 0) {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    lightboxImg.src = currentImages[currentIndex];
+  }
+});
+
+// close lightbox
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+// click outside image closes
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('active');
+  }
+});
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const orderButtons = document.querySelectorAll(".order-now");
+  const modal = document.getElementById("orderModal");
+  const modalClose = modal.querySelector(".close");
+  const orderForm = document.getElementById("orderForm");
+
+  const productsInput = document.getElementById("products");
+  const priceInput = document.getElementById("price");
+  const quantityInput = document.getElementById("quantity");
+  const totalInput = document.getElementById("total");
+
+  // When user clicks "Order Now" button
+  orderButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.name;
+      const price = parseFloat(btn.dataset.price);
+
+      productsInput.value = name;
+      priceInput.value = price.toFixed(2);
+      quantityInput.value = 1; // default
+      totalInput.value = price.toFixed(2);
+
+      modal.style.display = "block"; // open modal
+    });
+  });
+
+  // Update total when quantity or price changes
+  function updateTotal() {
+    const price = parseFloat(priceInput.value) || 0;
+    const qty = parseInt(quantityInput.value) || 0;
+    totalInput.value = (price * qty).toFixed(2);
+  }
+
+  quantityInput.addEventListener("input", updateTotal);
+  priceInput.addEventListener("input", updateTotal);
+
+  // Close modal on X click or outside click
+  modalClose.addEventListener("click", () => modal.style.display = "none");
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+});
+
+
+function togglePaymentSection() {
+  const method = document.getElementById('payment_method').value;
+  const upiSection = document.getElementById('upiSection');
+  const placeBtn = document.getElementById('placeOrderBtn');
+
+  if (!placeBtn) return; 
+
+  if (method === "Online Payment") {
+    upiSection.style.display = "block";
+    placeBtn.disabled = true;
+  } else if (method === "Cash on Delivery") {
+    upiSection.style.display = "none";
+    placeBtn.disabled = false; 
+  } else {
+    upiSection.style.display = true;
+    placeBtn.disabled = true;
+  }
+}
+// ✅ checkbox enable only when screen shot uploaded
+function handleScreenshotUpload(event) {
+  const file = event.target.files[0];
+  const checkbox = document.getElementById('paymentDone');
+  const status = document.getElementById('screenshotStatus');
+  
+  if (file) {
+    status.textContent = "✅ Screenshot uploaded successfully.";
+    status.style.color = "green";
+    checkbox.disabled = false; // Enable checkbox only after upload
+  } else {
+    status.textContent = "Please upload payment proof.";
+    status.style.color = "gray";
+    checkbox.disabled = true;
+  }
+}
+
+function togglePlaceOrder() {
+  const paymentDone = document.getElementById('paymentDone').checked;
+  const placeBtn = document.getElementById('placeOrderBtn') || document.querySelector('.btn[type="submit"]');
+  placeBtn.disabled = !paymentDone;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cartButtons = document.querySelectorAll(".add-to-cart");
+
+  cartButtons.forEach(button => {
+    button.addEventListener("click", async () => {
+      const name = button.dataset.name;
+      const price = button.dataset.price;
+
+      try {
+        const res = await fetch("/add_to_cart", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          alert(data.message);
+          // window.location.href = "/cart"; // optional redirect
+        } else {
+          alert(data.message || "Error adding to cart");
+        }
+      } catch (err) {
+        console.error("Add to cart error:", err);
+        alert("Failed to add item to cart. Please try again.");
+      }
+    });
+  });
+});
+
+
+</script>
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+  <img id="lightbox-img" src="" alt="Zoomed Image">
+</div>
+
+<!--Order Form Modal -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Place Your Order</h2>
+
+    <form method="POST" enctype="multipart/form-data" action="/place_order">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required>
+
+      <label for="phone">Phone:</label>
+      <input type="text" name="phone" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email">
+
+      <label for="address">Address:</label>
+      <textarea name="address" required></textarea>
+
+      <label for="products">Product:</label>
+      <input type="text" id="products" name="products" readonly>
+
+      <label for="price_per_unit">Price per unit (₹):</label>
+      <input type="text" id="price" name="price" readonly>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" id="quantity" min="1" value="1" required>
+
+      <label for="total">Total:</label>
+      <input type="text" id="total" name="total" readonly>
+
+      <!-- Payment Method -->
+<label for="payment_method">Payment Method:</label>
+<select name="payment_method" id="payment_method" onchange="togglePaymentSection()" required>
+  <option value="">Select Payment Method</option>
+  <option value="Cash on Delivery">Cash on Delivery</option>
+  <option value="Online Payment">Online Payment</option>
+</select>
+
+<div id="upiSection" style="display:none; margin-top:20px;">
+  <h4>Scan to Pay</h4>
+  <img src="{{ url_for('static', filename='images/qr_code.png') }}" alt="UPI QR Code" style="width:180px; border-radius:10px;">
+  <p><b>UPI ID:</b> sejal@okaxis</p>
+
+  <!-- Screenshot upload -->
+  <label for="payment_screenshot"><b>Upload Payment Screenshot:</b></label>
+  <input type="file" id="payment_screenshot" name="payment_screenshot" accept="image/*" onchange="handleScreenshotUpload(event)">
+
+  <p id="screenshotStatus" style="font-size: 14px; color: gray;">Please upload payment proof.</p>
+
+ <!-- Checkbox (disabled until screenshot uploaded) -->
+  <label>
+    <input type="checkbox" id="paymentDone" onchange="togglePlaceOrder()" disabled> ✅ I have completed the payment
+  </label>
+</div>
+      <button type="submit" id="placeOrderBtn" class="btn">Place Order</button>
+
+    </form>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+

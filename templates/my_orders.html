@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Orders - Sarveshree Creations</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f8f4ff, #e9ddff);
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5a2d82;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .orders-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .order-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-left: 5px solid #a86fd8;
+    }
+
+    .order-card h3 {
+      color: #5a2d82;
+      margin-bottom: 10px;
+    }
+
+    .order-card p {
+      margin: 5px 0;
+      color: #444;
+    }
+
+    .order-card img {
+      width: 150px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(123, 44, 191, 0.4);
+    }
+
+    .no-orders {
+      text-align: center;
+      color: #555;
+      margin: 20px 0;
+    }
+
+    .continue-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Welcome {{ user_name }} — Your Orders</h2>
+  <div class="continue-btn">
+    <a href="/index" class="btn">🛍️ Continue Shopping</a>
+  </div>
+
+  <div class="orders-container">
+    {% if orders %}
+      {% for order in orders %}
+        <div class="order-card">
+          <h3>Order #{{ order.id }}</h3>
+          <p><b>Products:</b> {{ order.products }}</p>
+          <p><b>Quantity:</b> {{ order.quantity }}</p>
+          <p><b>Total:</b> ₹{{ order.total }}</p>
+          <p><b>Payment Method:</b> {{ order.payment_method }}</p>
+          <p><b>Date:</b> {{ order.date }}</p>
+          <!-- {% if order.payment_screenshot %}
+            <p><b>Payment Screenshot:</b></p>
+             <img src="{{ order.screenshot }}" alt="Payment Proof">
+             <img src="{{ url_for('static', filename=order.payment_screenshot) }}" alt="Payment Proof">
+
+          {% endif %} -->
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="no-orders">You have not placed any orders yet.</p>
+    {% endif %}
+  </div>
+
+
+</body>
+</html>

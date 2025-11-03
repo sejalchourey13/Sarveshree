@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Place Order</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f8e7ff, #e3f2ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .order-container {
+      background: #fff;
+      padding: 30px 35px;
+      border-radius: 15px;
+      width: 400px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #4b0082;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      background: #fafafa;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #a64bf4;
+      outline: none;
+      box-shadow: 0 0 8px rgba(166, 75, 244, 0.3);
+    }
+
+    textarea {
+      resize: none;
+      height: 70px;
+    }
+
+    .btn {
+      width: 100%;
+      background: linear-gradient(135deg, #a64bf4, #6a00f4);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(106,0,244,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="order-container">
+    <h2>🛒 Confirm Your Order</h2>
+    <form action="/place_order" method="POST" enctype="multipart/form-data">
+
+      <label>Name:</label>
+      <input type="text" name="name" placeholder="Enter your full name" required>
+
+      <label>Phone:</label>
+      <input type="text" name="phone" placeholder="Enter your phone number" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" placeholder="Enter your email (optional)">
+
+      <label>Address:</label>
+      <textarea name="address" placeholder="Enter your delivery address" required></textarea>
+
+      <label>Products:</label>
+      <textarea name="products" readonly>{{ products }}</textarea>
+
+      <label>Total Amount:</label>
+      <input type="text" name="total" readonly value="{{ total }}">
+
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </div>
+</body>
+</html>

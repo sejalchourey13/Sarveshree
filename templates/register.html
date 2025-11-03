@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ede7f6, #d1c4e9, #9575cd);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* 🌈 Container styling */
+    .register-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 45px 40px;
+      border-radius: 22px;
+      box-shadow: 0 10px 40px rgba(50, 0, 100, 0.15);
+      width: 500px;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeSlideUp 1.2s ease-out forwards;
+      transition: all 0.4s ease;
+    }
+
+    /* Animation: smooth slide-up with scaling */
+   @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(70px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      animation: fadeText 1.4s ease-in-out forwards;
+    }
+
+    h2 {
+      color: #5e35b1;
+      margin-bottom: 25px;
+      animation: fadeText 1.7s ease-in-out forwards;
+    }
+
+    @keyframes fadeText {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    input:focus {
+      border-color: #7e57c2;
+      outline: none;
+      box-shadow: 0 0 6px rgba(126, 87, 194, 0.4);
+    }
+
+    button {
+      width: 95%;
+      background: linear-gradient(135deg, #7b1fa2, #4a148c);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(74, 20, 140, 0.3);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(74, 20, 140, 0.4);
+    }
+
+    p {
+      margin-top: 20px;
+      color: #444;
+      font-size: 14px;
+    }
+
+    a {
+      color: #6a1b9a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="register-container">
+    <h1>💜 Welcome to Sarveshree Creations</h1>
+    <h2>📝 Create Account</h2>
+    <form action="/" method="POST">
+      <input type="text" name="name" placeholder="Enter your name" required><br>
+      <input type="email" name="email" placeholder="Enter your email" required><br>
+      <input type="text" name="phone" placeholder="Enter your phone number" required><br>
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="/login">Login here</a></p>
+  </div>
+
+</body>
+</html>
