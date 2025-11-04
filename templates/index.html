@@ -11,6 +11,22 @@
 
 </head>
 <body>
+
+  <!-- 🌸 Loader -->
+  <div id="loader">
+    <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Sarveshree Logo" width="100" style="border-radius: 50%; margin-bottom: 10px;">
+    <div class="spinner"></div>
+    <div class="loading-text">Starting Sarveshree... Please wait 🌼</div>
+  </div>
+
+  <!-- 🌼 Main Content -->
+  <div id="main-content">
+    <!-- 👇 Your original homepage content starts here -->
+    <h1 style="text-align:center; margin-top:100px;">Welcome to Sarveshree 🌸</h1>
+    <p style="text-align:center;">Handcrafted with love — explore our crochet & embroidered collection 💕</p>
+    <a href="/shop" style="display:block;text-align:center;margin-top:20px;color:#ff69b4;font-weight:bold;">Explore Products →</a>
+    <!-- 👆 You can keep your existing homepage structure here -->
+  </div>
  <!-- Header / Navbar -->
 <header>
   <div class="logo">
@@ -697,6 +713,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+ window.addEventListener("load", function() {
+      const loader = document.getElementById("loader");
+      const mainContent = document.getElementById("main-content");
+
+      setTimeout(() => {
+        loader.classList.add("hidden");
+        mainContent.style.display = "block";
+      }, 2000); // 2 seconds delay (adjust if you want)
+    });
 
 
 </script>
