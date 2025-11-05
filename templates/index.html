@@ -12,13 +12,7 @@
 </head>
 <body>
 
-  <!-- 🌸 Loader -->
-  <div id="loader">
-    <img src="{{ url_for('static', filename='images/logo2.jpeg') }}" alt="Sarveshree Logo" width="100" style="border-radius: 50%; margin-bottom: 10px;">
-    <div class="spinner"></div>
-    <div class="loading-text">Starting Sarveshree... Please wait 🌼</div>
-  </div>
-
+  
   <!-- 🌼 Main Content -->
   <div id="main-content">
     <!-- 👇 Your original homepage content starts here -->
@@ -713,15 +707,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
- window.addEventListener("load", function() {
-      const loader = document.getElementById("loader");
-      const mainContent = document.getElementById("main-content");
-
-      setTimeout(() => {
-        loader.classList.add("hidden");
-        mainContent.style.display = "block";
-      }, 2000); // 2 seconds delay (adjust if you want)
-    });
 
 
 </script>
