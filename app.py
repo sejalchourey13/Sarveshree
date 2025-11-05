@@ -99,15 +99,9 @@ def login():
             user = c.fetchone()
             conn.close()
 
-            if user and user[2] == password:
+            if user:
                 session['user_id'] = user[0]
                 session['user_name'] = user[1]
-
-            # ✅ Remember Me Functionality
-                if 'remember' in request.form:
-                    session.permanent = True
-                    from datetime import timedelta
-                    app.permanent_session_lifetime = timedelta(days=7)
 
                 return redirect('/index')
             else:
