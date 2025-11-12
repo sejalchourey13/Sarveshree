@@ -64,6 +64,7 @@ orders = []
 
 @app.route('/', methods=['GET', 'POST'])
 def register():
+    
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -86,6 +87,12 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # agar already login hai to direct redirect kar do
+    if 'user_id' in session:
+        return redirect('/index')
+    if 'admin' in session:
+        return redirect('/admin_orders')
+    
     if request.method == 'POST':
         role = request.form['role']
 
@@ -115,11 +122,6 @@ def login():
             else:
                 return "🚫 Invalid Admin Credentials!"
             
-    # agar already login hai to direct redirect kar do
-    if 'user_id' in session:
-        return redirect('/index')
-    if 'admin' in session:
-        return redirect('/admin_orders')
     
     return render_template('login.html')
 
